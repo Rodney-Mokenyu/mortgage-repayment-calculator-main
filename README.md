@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL:(https://github.com/Rodney-Mokenyu/Rodney-Mokenyu.github.io)
+- Live Site URL: [Add live site URL here] https://rodney-mokenyu.github.io/mortgage-repayment-calculator-main/
 
 ## My process
 The project began with structuring the HTML to create a user-friendly form for mortgage inputs. CSS was then used to style the layout responsively and ensure accessibility. JavaScript handled input validation, formatting, and dynamic calculations. The process involved testing, refining UI behavior, and ensuring accurate, real-time result display based on user input.
@@ -63,11 +63,11 @@ I am still new to js and will like to develop my dom manipulation skills more.
 ### Useful resources
 
 - [Example resource 1](https://www.chatGPT.com) - This helped with code debugging and explanations. I always use it for my projects. absolutely amazing.
+
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@Rodney-Mokenyu]https://www.frontendmentor.io/profile/Rodney-Mokenyu
+
 
 **Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 

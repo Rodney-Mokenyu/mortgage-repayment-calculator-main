@@ -1,0 +1,274 @@
+*,*::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* primary colors */
+    --Lime: hsl(61, 70%, 52%);
+    --Red: hsl(4, 69%, 50%);
+
+    /*neutral colors */
+    --White: hsl(0, 0%, 100%);
+    --Slate100: hsl(202, 86%, 94%);
+    --Slate300: hsl(203, 41%, 72%);
+    --Slate500: hsl(200, 26%, 54%);
+    --Slate700: hsl(200, 24%, 40%);
+    --Slate900: hsl(202, 55%, 16%);
+}
+
+body {
+    height: 100vh;
+    background-color: var(--White);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+main {
+    height: 100%;
+    display: flex;
+    align-items: center;    /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+  }
+
+.mortgage-box h1 {
+    color: var(--Slate900);
+}
+  #clear-button {
+    color: var(--Slate300);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black; /* Adjust thickness and color as needed */
+    padding-bottom: 2px; /* Optional: Add a little padding to visually separate the text from the line */
+  }
+
+.mortgage-box {
+    display: flex;
+    flex-direction: column;
+   
+}
+label {
+    color: var(--Slate500);
+}
+input {
+    color: var(--Slate900);
+    font-weight: bold;
+}
+label, input{
+    display: block;
+    margin-bottom: 1rem;
+}
+.input-wrapper {
+    position: relative;
+    
+  }
+  
+  #currency-symbol, #years-placeholder, #percent-symbol{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: skyblue;
+    padding: 0.45rem 0.7rem; /* Increased padding for wider background */
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .input-wrapper:focus-within #currency-symbol {
+    background-color: var(--Lime);
+    
+  }
+
+  #currency-symbol,#percent-symbol {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  
+  input[type="number"], 
+  input[type="text"] {
+    padding-left:40px !important; /* Make this larger than the symbol's total width */
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--Slate700);
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  
+  #years-placeholder {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    right: 0;
+  }
+  #percent-symbol {
+    pointer-events: none;
+  }
+  
+  .input-wrapper input {
+    padding-left: 24px; /* Make room for the £ symbol */
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .radio-option {
+    height: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--Slate300);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+  }
+  .radio-group input {
+    display: inline-block;
+    align-self: center;
+    margin: 0 0;
+  }
+
+  .radio-option:hover {
+    background-color: rgba(245, 245, 143,0.3);
+    border: 2px solid var(--Lime);
+  }
+
+  .btn {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    width: 100%;
+    background-color: var(--Lime);
+    color: var(--Slate900);
+    font-weight: bold;
+  }
+
+  footer {
+    background-color: var(--Slate900);
+  }
+  
+  .display-none {
+    display: none !important;
+    
+  }
+
+  #results-header{
+    color: var(--White);
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  .result-section { 
+    border-radius: 0.5rem;
+    background-color: var(--Slate900);
+    padding: 1rem;
+    color: var(--White);
+    position: relative; 
+   
+  }
+  
+  .result-section::before {
+    content: "";
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 5px;
+    background-color: var(--Lime); 
+    border-top-left-radius: 0.5rem; 
+    border-top-right-radius: 0.5rem; 
+  }
+  
+  .result-section h1 {
+    color: var(--Lime);
+  }
+
+  #empty-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--White);
+  }
+  #empty-section h1 {
+    color: var(--White);
+  }
+
+  @media (min-width: 768px) {
+
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--Slate100);
+        padding: 8rem;
+        box-sizing: border-box;
+    }
+
+    #calculator-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    #motgageTermAndRate{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+   
+   
+    .btn {
+        width: 70%;
+    }
+
+    main {
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: -1rem;
+        border-top-left-radius: 1rem;
+        background-color: var(--White);
+        height: 80vh;
+        width: 50%;
+        padding-left: 12px;
+        padding-right: 3rem;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        
+        
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom-left-radius: 3rem;
+        border-bottom-right-radius: 1rem;
+        border-top-right-radius: 1rem;
+        height: 80.5vh;
+        width: 50%;
+        transform: translate(-35px,0px);
+        
+        padding: 0 6.5rem; 
+        font-size: 1rem; 
+    }
+    footer h1 {
+        font-size: 1.5rem;
+    }
+  }

@@ -2,24 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Mortgage repayment calculator</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
-  
-  
-  <!--BOOTSTRAP -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <!--Javascript-->
-  
 </head>
 <body>
 
@@ -27,108 +21,88 @@
     <div class="container motgage-box">
       <div id="calculator-header">
         <h1>Mortgage Calculator</h1>
-        <button id="clear-button">
-          Clear All
-        </button>
+        <button id="clear-button">Clear All</button>
       </div>
-      
 
-      <label for="motgageAmount">Mortgage Amount</label>
+      <form id="mortgage-form" novalidate>
+        <!-- Mortgage Amount -->
+        <label for="motgageAmount">Mortgage Amount</label>
         <div class="input-wrapper">
           <span id="currency-symbol">£</span>
-          <input type="number" id="motgageAmount" name="mortgage-amount" />
-        </div> 
+          <input type="number" id="motgageAmount" name="mortgage-amount" required />
+        </div>
         <p class="display-none text-danger">This field is required</p>
 
-      <div id="motgageTermAndRate">
-        <div><label for="motgageTerm">Mortgage Term</label>
-          <div class="input-wrapper">
-            <span id="years-placeholder">years</span>
-            <input type="number" id="motgageTerm" name="mortgage-years" />
-          </div>
-          <p class="display-none text-danger">This field is required</p>
-        </div>
-        
-        <div><label for="Interest-rate">Interest-rate</label>
+        <!-- Term and Interest -->
+        <div id="motgageTermAndRate">
+          <div>
+            <label for="motgageTerm">Mortgage Term</label>
             <div class="input-wrapper">
-              <span id="percent-symbol">%</span>
-              <input type="number" id="Interest-rate" name="mortgage-years" />
+              <span id="years-placeholder">years</span>
+              <input type="number" id="motgageTerm" name="mortgage-years" required />
             </div>
             <p class="display-none text-danger">This field is required</p>
+          </div>
+
+          <div>
+            <label for="Interest-rate">Interest-rate</label>
+            <div class="input-wrapper">
+              <span id="percent-symbol">%</span>
+              <input type="number" id="Interest-rate" name="interest-rate" required />
+            </div>
+            <p class="display-none text-danger">This field is required</p>
+          </div>
         </div>
 
-        
-      </div>
-      
+        <!-- Mortgage Type -->
+        <fieldset class="radio-group">
+          <legend>Mortgage Type</legend>
+          <label class="radio-option">
+            <input type="radio" name="mortgage-type" value="Repayment" required>
+            Repayment
+          </label>
 
-      <div class="radio-group">
-        <label>Mortgage Type</label>
-        <label class="radio-option">
-          <input type="radio" name="mortgage-type" value="Repayment">
-          Repayment
-        </label>
-      
-        <label class="radio-option">
-          <input type="radio" name="mortgage-type" value="Interest Only">
-          Interest Only
-        </label>
-        <p class="display-none text-danger" id="error">This field is required</p>
-      </div>
+          <label class="radio-option">
+            <input type="radio" name="mortgage-type" value="Interest Only" required>
+            Interest Only
+          </label>
+          <p class="display-none text-danger" id="error">This field is required</p>
+        </fieldset>
 
-      <button type="button" class="btn" id="calculate-repayment">
-        <img src="assets/images/icon-calculator.svg" alt="calculator icon" class="image-fluid"  />
-        Calculate Repayments
-      </button>
-      
+        <!-- Calculate Button -->
+        <button type="button" class="btn" id="calculate-repayment">
+          <img src="assets/images/icon-calculator.svg" alt="calculator icon" class="image-fluid" />
+          Calculate Repayments
+        </button>
+      </form>
     </div>
-
   </main>
-
 
   <footer>
     <div class="container display-none" id="results-header">
       <h1>Your results</h1>
-      <p>
-        Your results are shown below based on the information you provided. 
-        To adjust the results, edit the form and click “calculate repayments” again.
-      </p>
+      <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
     </div>
+
     <section class="container result-section display-none">
-      <p> Your monthly repayments</p>
-      <h1 id="monthly-repayment">
-        <!--Filled dynamically when the mortgage is calculated-->
-      </h1>
+      <p>Your monthly repayments</p>
+      <h1 id="monthly-repayment"></h1>
       <hr>
       <p>Total you'll repay over the term</p>
-      <h2 id="total-repayment">
-        <!--Filled dynamically when the mortgage is calculated-->
-        
-      </h2>
+      <h2 id="total-repayment"></h2>
     </section>
 
     <section class="container" id="empty-section">
       <img src="assets/images/illustration-empty.svg" alt="illustration-empty-picture" class="image-fluid" />
       <h1>Results shown here</h1>
-      <span>  Comsplete the form and click “calculate repayments” to see what 
-        your monthly repayments would be.
-      </span>
+      <span>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</span>
     </section>
-    
+
     <div class="attribution mt-3 text-primary">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
       Coded by <a href="#">Oracle of Omaha</a>.
     </div>
   </footer>
-
- 
-
-
-
-
-  
-
-
-  
 
   <script src="script.js"></script>
 </body>
